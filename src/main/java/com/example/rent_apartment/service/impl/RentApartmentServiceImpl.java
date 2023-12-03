@@ -1,5 +1,6 @@
 package com.example.rent_apartment.service.impl;
 
+import com.example.rent_apartment.mapper.RentApartmentMapper;
 import com.example.rent_apartment.model.dto.RegistrationApartmentFormDto;
 import com.example.rent_apartment.model.entity.AddressEntity;
 import com.example.rent_apartment.model.entity.ApartmentEntity;
@@ -15,14 +16,16 @@ public class RentApartmentServiceImpl implements RentApartmentService {
 
     private final AddressRepository addressRepository;
     private final ApartmentRepository apartmentRepository;
+    private final RentApartmentMapper rentApartmentMapper;
 
     @Override
     public String registrationNewApartment(RegistrationApartmentFormDto regFormDto) {
 
-        AddressEntity addressEntity = new AddressEntity();
-        ApartmentEntity apartmentEntity = new ApartmentEntity();
+        AddressEntity addressEntity = rentApartmentMapper.registrationApartmentDtoToAddressEntity(regFormDto);
         addressRepository.save(addressEntity);
+        ApartmentEntity apartmentEntity = rentApartmentMapper.registrationApartmentDtoToApartmentEntity(regFormDto);
+        apartmentEntity.setAddressEntity(addressEntity);
         apartmentRepository.save(apartmentEntity);
-        return null;
+        return "Апартаменты успешно зарегистрированы";
     }
 }
