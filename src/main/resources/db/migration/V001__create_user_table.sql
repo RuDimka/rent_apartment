@@ -11,4 +11,4 @@ CREATE TABLE IF NOT EXISTS user_info(
 );
 
 INSERT INTO user_info(id, nick_name, email, password, date_registration, token, parent_city)
-    VALUES (1, 'Test', 'test@gmail.com', 'test', NULL, 'test_token', 'Пенза');
+    VALUES (1, 'Test', 'test@gmail.com', 'test', NULL, NULL, 'Пенза');

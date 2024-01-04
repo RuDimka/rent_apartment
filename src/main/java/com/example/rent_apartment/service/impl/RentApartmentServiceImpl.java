@@ -1,6 +1,7 @@
 package com.example.rent_apartment.service.impl;
 
 import com.example.rent_apartment.mapper.RentApartmentMapper;
+import com.example.rent_apartment.model.dto.LocationDataDto;
 import com.example.rent_apartment.model.dto.RegistrationApartmentFormDto;
 import com.example.rent_apartment.model.entity.AddressEntity;
 import com.example.rent_apartment.model.entity.ApartmentEntity;
@@ -9,6 +10,8 @@ import com.example.rent_apartment.repository.ApartmentRepository;
 import com.example.rent_apartment.service.RentApartmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -28,4 +31,10 @@ public class RentApartmentServiceImpl implements RentApartmentService {
         apartmentRepository.save(apartmentEntity);
         return "Апартаменты успешно зарегистрированы";
     }
+
+    @Override
+    public List<AddressEntity> findApartmentByLocation(LocationDataDto loc) {
+        return null;
+    }
+
 }

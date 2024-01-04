@@ -11,4 +11,6 @@ public class ApplicationConstant {
     public static final String AUTHORIZATION = BASE_PATH + "/authorization";
 
     public static final String REG_APARTMENT = BASE_PATH + "/reg_apartment";
+    public static final String BY_LOCATION = BASE_PATH + "/by_location";
+
 }
